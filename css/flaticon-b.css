@@ -1,0 +1,60 @@
+	/*
+  	Flaticon icon font: Flaticon
+  	Creation date: 08/05/2017 09:43
+  	*/
+
+@font-face {
+  font-family: "Flaticon-b";
+  src: url("../fonts/Flaticon-b.eot");
+  src: url("../fonts/Flaticon-b.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/Flaticon-b.woff") format("woff"),
+       url("../fonts/Flaticon-b.ttf") format("truetype"),
+       url("../fonts/Flaticon-b.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon-b";
+    src: url("../fonts/Flaticon-b.svg#Flaticon") format("svg");
+  }
+}
+
+[class^="flaticonb-"]:before, [class*=" flaticonb-"]:before,
+[class^="flaticonb-"]:after, [class*=" flaticonb-"]:after {   
+  font-family: Flaticon-b;
+  font-style: normal;
+  font-size: 30px;
+}
+
+.flaticonb-001-teamwork-3:before { content: "\f100"; }
+.flaticonb-002-teamwork-2:before { content: "\f101"; }
+.flaticonb-003-support:before { content: "\f102"; }
+.flaticonb-004-management:before { content: "\f103"; }
+.flaticonb-005-exchange:before { content: "\f104"; }
+.flaticonb-006-brainstorming:before { content: "\f105"; }
+.flaticonb-007-gears:before { content: "\f106"; }
+.flaticonb-008-networking:before { content: "\f107"; }
+.flaticonb-009-transfer:before { content: "\f108"; }
+.flaticonb-010-team-3:before { content: "\f109"; }
+.flaticonb-011-presentation:before { content: "\f10a"; }
+.flaticonb-012-strategy:before { content: "\f10b"; }
+.flaticonb-013-profits:before { content: "\f10c"; }
+.flaticonb-014-settings:before { content: "\f10d"; }
+.flaticonb-015-discussion:before { content: "\f10e"; }
+.flaticonb-016-files:before { content: "\f10f"; }
+.flaticonb-017-tasks-2:before { content: "\f110"; }
+.flaticonb-018-tasks-1:before { content: "\f111"; }
+.flaticonb-019-community:before { content: "\f112"; }
+.flaticonb-020-curriculum:before { content: "\f113"; }
+.flaticonb-021-puzzle:before { content: "\f114"; }
+.flaticonb-022-team-2:before { content: "\f115"; }
+.flaticonb-023-teamwork-1:before { content: "\f116"; }
+.flaticonb-024-communication:before { content: "\f117"; }
+.flaticonb-025-tasks:before { content: "\f118"; }
+.flaticonb-026-team-1:before { content: "\f119"; }
+.flaticonb-027-man:before { content: "\f11a"; }
+.flaticonb-028-woman:before { content: "\f11b"; }
+.flaticonb-029-teamwork:before { content: "\f11c"; }
+.flaticonb-030-team:before { content: "\f11d"; }
