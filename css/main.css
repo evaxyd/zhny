@@ -1090,9 +1090,9 @@ section.content-section.gray-section {
 }
 
 .parallax-section .primary-grad {
-  background: -webkit-linear-gradient( left , rgba(231, 76, 60, 0.8), rgba(168, 35, 21, 0.6));
-  background: -webkit-linear-gradient(left, rgba(231, 76, 60, 0.8), rgba(168, 35, 21, 0.6));
-  background: linear-gradient(to right, rgba(231, 76, 60, 0.8), rgba(168, 35, 21, 0.6));
+  background: -webkit-linear-gradient( left , rgba(187, 206, 218, 0.6), rgba(74,74,74,0.4));
+  background: -webkit-linear-gradient(left, rgba(187, 206, 218, 0.6), rgba(74,74,74,0.4));
+  background: linear-gradient(to right, rgba(187, 206, 218, 0.6), rgba(74,74,74,0.4));
   color: #fff;
 }
 
