@@ -37,15 +37,7 @@ $(function($) {
 
     
 
-    // For changing body class on scroll
-    $(window).on("scroll resize", function() {
-        if ($(window).scrollTop() >= 75) {
-            $("body").addClass("body-scrolled");
-        }
-        else {
-            return $("body").removeClass("body-scrolled");
-        }
-    });
+    
 
     $(window).resize(function() {
       fullscreen();

@@ -1294,9 +1294,14 @@ section.content-section.gray-section {
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 1px;
-  line-height: 40px;
+  line-height: 60px;
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
+}
+
+.navbar-fixed-top-o {
+  position: absolute;
+  top: 0
 }
 
 .navbar-fixed-top {
@@ -1328,7 +1333,7 @@ section.content-section.gray-section {
 }
 
 .navbar-brand img {
-  height: 80px;
+  height: 100px;
 }
 
 .navbar-brand .dark-logo {
