@@ -1882,25 +1882,29 @@ section.content-section.gray-section {
 
 .latest-post {
   position: relative;
+  height: 200px;
+  overflow: hidden;
 }
-
+.latest-post img{
+  height: 200px;
+}
 .latest-post .blog-info {
   position: absolute;
-  opacity: 0;
-  top: 0;
+  /*opacity: 0;*/
+  bottom: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  padding: 1em;
+  height: 36%;
+  padding: 10px;
   overflow: hidden;
   color: #fff;
-  background: -webkit-linear-gradient( left top, rgba(20,130,195, 0.9), rgba(85,180,236, 0.5));
-  background: -webkit-linear-gradient(left top, rgba(20,130,195, 0.9), rgba(85,180,236, 0.5));
-  background: linear-gradient(to right bottom, rgba(20,130,195, 0.9), rgba(85,180,236, 0.5));
+  background: rgba(20,130,195, 0.7);
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
 }
-
+.latest-post .blog-info h6{
+  line-height: 2
+}
 .latest-post .blog-info h1, .latest-post .blog-info h2, .latest-post .blog-info h3, .latest-post .blog-info h4, .latest-post .blog-info h5, .latest-post .blog-info h6, .latest-post .blog-info a {
   color: #fff !important;
   margin: 0;
@@ -1912,6 +1916,8 @@ section.content-section.gray-section {
 
 .latest-post .blog-info .blog-excerpt {
   margin-bottom: 0;
+  font-size: 13px;
+  line-height: 1.2
 }
 
 .latest-post:hover .blog-info {

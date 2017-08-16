@@ -105,3 +105,11 @@
 	margin-top: 0;
 	margin-bottom: 20px;
 }
+.business-content span{
+	color: #1184c4;
+	margin-top: 20px;
+    display: inline-block;
+}
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before, [class^="flaticon-"]:after, [class*=" flaticon-"]:after,[class^="flaticonb-"]:before, [class*=" flaticonb-"]:before, [class^="flaticonb-"]:after, [class*=" flaticonb-"]:after{
+	font-size: 50px;
+}
