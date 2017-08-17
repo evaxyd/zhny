@@ -34,7 +34,7 @@
 }
 .link-wrapper a{
 	display: inline-block;
-	width: 240px;
+	width: 230px;
 	height: 90px;
 	line-height: 0;
 }
@@ -89,7 +89,9 @@
     width: 30px;
     margin: 20px auto;
 }
-
+.inside-content{
+	padding:80px 0;
+}
 #cooperation{
 	padding-top:20px;
 }

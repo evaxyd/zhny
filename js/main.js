@@ -46,6 +46,11 @@ $(function($) {
     function fullscreen() {
         var width = $(window).width(),
             height = $(window).height();
-        $('.banner').css({"width":width+"px","height":height+"px"})
+        $('.banner').css({"width":width+"px","height":height+"px"});
+        $('section').css({"width":width+"px","height":height+"px"});
+        $('section .container').each(function() {
+            var nh = $(this).height();
+            $(this).css("margin-top",(height-nh)/2 + 'px');
+        })
     }
 });

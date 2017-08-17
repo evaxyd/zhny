@@ -1063,8 +1063,9 @@ p a {
 }
 
 section.content-section {
-  padding: 80px 0px;
+  /*padding: 80px 0px;*/
   background: #fff;
+  float: left;
 }
 
 section.content-section.black-section {
