@@ -46,11 +46,16 @@ $(function($) {
     function fullscreen() {
         var width = $(window).width(),
             height = $(window).height();
-        $('.banner').css({"width":width+"px","height":height+"px"});
-        $('section').css({"width":width+"px","height":height+"px"});
+        $('.banner').css({"width":width+"px","min-height":height+"px"});
+        $('section').css({"width":width+"px","min-height":height+"px"});
         $('section .container').each(function() {
             var nh = $(this).height();
-            $(this).css("margin-top",(height-nh)/2 + 'px');
+            if(height > nh) {
+                $(this).css("margin-top",(height-nh)/2 + 'px');
+            }else{
+                $(this).css("margin-top",(nh-height)/2 + 'px');
+            }
+            
         })
     }
 });
