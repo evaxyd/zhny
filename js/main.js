@@ -19,7 +19,7 @@ $(function($) {
         var target_offset = $("#"+trgt).offset();
         var target_top = target_offset.top;
 
-        $('html,body').animate({scrollTop:target_top -110}, 800);
+        $('html,body').animate({scrollTop:target_top -90}, 800);
 
 
     });

@@ -2263,12 +2263,12 @@ section.content-section.gray-section {
 # 16. FOOTER
 --------------------------------------------------------------*/
 .footer {
-  background: #222222;
+  background: #414c50;
   /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #222222, #434343);
+/*  background: -webkit-linear-gradient(to left, #414c50, #636363);
   /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(right, #222222, #434343);
-  background: linear-gradient(to left, #222222, #434343);
+  /*background: -webkit-linear-gradient(right, #414c50, #636363);
+  background: linear-gradient(to left, #414c50, #636363);*/
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: #f6f6f6;
 }
@@ -2294,7 +2294,7 @@ section.content-section.gray-section {
 
 .footer .footer-bottom {
   padding: 20px 0;
-  background: #222;
+  background: #414c50;
   font-size: 90%;
   color: #f6f6f6;
 }
