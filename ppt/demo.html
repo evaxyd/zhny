@@ -31,10 +31,19 @@
 		<style>
 			.reveal h2{
 				border-left: 10px solid;
-			    font-size: 2.2em;
+			    font-size: 2.2rem;
 			    padding-left: 40px;
 			    margin-bottom: 2rem;
 			    text-align: left
+			}
+			.reveal p{
+				font-size: 1.6rem;
+				text-align: left;
+			}
+			.reveal code.highlighter-rouge {
+			    color: #CDFF5D;
+			    background-color: #233140;
+			    padding: 4px 10px;
 			}
 			.reveal .echarts{
 				width: 1000px;
@@ -49,8 +58,20 @@
 				display: block;
 			}
 			.text-point{
-				color: #c78889;
+				color: #CDFF5D;
 				font-size: 60%!important
+			}
+			.text-big{
+				text-align: center!important;
+			}
+			.text-big small{
+				font-size: 100%
+			}
+			.text-split{
+				color: #FF8BBA;
+			}
+			.data-list {
+				width: 100%;
 			}
 			.data-list li{
 				font-size: 90%;
@@ -73,7 +94,7 @@
 				<section>
 					<h1>ECHARTS</h1>
 					<h3>基础图表可视化实践</h3>
-					<p>
+					<p class="text-big">
 						<small>Created by <a href="#">xuyd@ctrip.com</a></small>
 					</p>
 				</section>
@@ -109,10 +130,20 @@
 				</section>
 
 				<section>
-					<h2>最先开始做什么</h2>
-					<p class="fragment">1、获取（官网、github、npm、cdn） <span class="fragment">vue和react皆可通过npm安装</span></p>
+					<h2>一步一步来</h2>
+					<p class="fragment">1、获取（官网、github、npm、cdn） <span class="fragment">在webpack中使用</span></p>
 					<p class="fragment">2、将echarts引用到你的页面中</p>
+					<pre class="fragment">
+						<code class="hljs" data-trim contenteditable>
+							<script src="echarts.min.js"></script>
+						</code>
+					</pre>
 					<p class="fragment">3、创建一个容器，并绘制图表</p>
+					<pre class="fragment">
+						<code class="hljs" data-trim contenteditable>
+							<div id="main" style="width: 600px;height:400px;"></div>
+						</code>
+					</pre>
 					<p class="fragment">基础图表类型：线图，柱状图，饼图</p>
 				</section>
 
@@ -120,14 +151,19 @@
 					<h2>配置项</h2>
 					<pre>
 						<code class="hljs" data-trim contenteditable>
-							var myChart = ec.init(document.getElementById('main'));
+							var myChart = echarts.init(document.getElementById('main'));
 							var option = {
+								title: {
+									text: '一个小例子'
+								},
 			                    tooltip: {
 			                        show: true
 			                    },
 			                    legend: {
 			                        data:['销量']
 			                    },
+			                    /*直角坐标系grid中的x轴,一般情况下单个grid组件最多只能放左右两个x轴，多于两个x轴需要通过配置 offset属性防止同个位置多个x轴的重叠。
+								*/
 			                    xAxis : [
 			                        {
 			                            type : 'category', //类目轴，适用于离散的类目数据，为该类型时必须通过 data 设置类目数据。
@@ -155,280 +191,125 @@
 				</section>
 
 				<section>
-					<h2>Touch Optimized</h2>
-					<p>
-						Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
-					</p>
+					<h2>事件</h2>
+					<p>用在需要和某个图表上的事件进行交互的场合：</p>
+					<pre>
+						<code class="hljs" data-trim contenteditable>
+							myChart.on('click', function (params) {
+							    window.open('https://www.baidu.com/s?wd=' + encodeURIComponent(params.name));
+							});
+						</code>
+					</pre>
+					<p>其中的 <code class="highlighter-rouge">params</code> 参数涵盖了整个图表对象的信息（见官方文档）</p>
+					
 				</section>
-
-				<section data-markdown>
-					<script type="text/template">
-						## Markdown support
-
-						Write content using inline or external Markdown.
-						Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-
-						```
-						<section data-markdown>
-						  ## Markdown support
-
-						  Write content using inline or external Markdown.
-						  Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-						</section>
-						```
-					</script>
-				</section>
-
+				
 				<section>
-					<section id="fragments">
-						<h2>Fragments</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
-
-						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
-						</aside>
+					<section>
+						<h2>举个栗子</h2>
+						<p>浮层展示次数监控</p>
+						<p class="text-split">需求：</p>
+						<ul class="data-list">
+							<li>1、多维度联动查询</li>
+							<li>2、查询后展示图表</li>
+							<li>3、酷炫</li>
+						</ul>
+						<img src="img/box.png" alt="">
 					</section>
 					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's different types of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment fade-up">fade-up (also down, left and right!)</p>
-						<p class="fragment current-visible">current-visible</p>
-						<p>Highlight <span class="fragment highlight-red">red</span> <span class="fragment highlight-blue">blue</span> <span class="fragment highlight-green">green</span></p>
+						<h2>解题思路</h2>
+						<p>1、通过筛选拿到查询参数，请求获得返回数据</p>
+						<p>2、处理返回数据，使其符合echarts数据格式</p>
+						<p>3、拼<code class="highlighter-rouge">option</code>（加渐变，阴影，动画等特效）</p>
+						<a href="http://app.offline.dmp.market.fat401.qa.nt.ctripcorp.com/fetchdata/floating-cs.html" target="_blank">看一下</a>
+					</section>
+					<section>
+						<h2>折线样式代码</h2>
+						<ul class="data-list">
+							<li>
+								<p>单条折线渐变</p>
+								<pre>
+									<code class="hljs" data-trim contenteditable>
+										series.lineStyle = {
+				                            normal: {
+				                                color: new echarts.graphic.LinearGradient(0, 0, 1, 1, [{
+				                                    offset: 0.7,
+				                                    color: '#18c4b4' // 0% 处的颜色
+				                                }, {
+				                                    offset: 1,
+				                                    color: '#dae83d' // 100% 处的颜色
+				                                }], false),
+				                                width: 5,
+				                            }
+				                        }
+									</code>
+								</pre>
+							</li>
+							<li>
+								<p>多条折线区域透明</p>
+								<pre>
+									<code class="hljs" data-trim contenteditable>
+										series.areaStyle = {
+				                            normal: {
+				                                opacity: '0.1'
+				                            }
+				                        }
+									</code>
+								</pre>
+							</li>
+						</ul>
 					</section>
 				</section>
 
-				<section id="transitions">
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like: <br>
-						<a href="?transition=none#/transitions">None</a> -
-						<a href="?transition=fade#/transitions">Fade</a> -
-						<a href="?transition=slide#/transitions">Slide</a> -
-						<a href="?transition=convex#/transitions">Convex</a> -
-						<a href="?transition=concave#/transitions">Concave</a> -
-						<a href="?transition=zoom#/transitions">Zoom</a>
-					</p>
-				</section>
-
-				<section id="themes">
-					<h2>Themes</h2>
-					<p>
-						reveal.js comes with a few themes built in: <br>
-						<!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black (default)</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a> <br>
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;">Blood</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
-					</p>
-				</section>
-
 				<section>
-					<section data-background="#dddddd">
-						<h2>Slide Backgrounds</h2>
-						<p>
-							Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
-						</p>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
+					<section>
+						<h2>使用中遇到的问题</h2>
+						<p>1、容器高度固定，legend过多导致覆盖图表</p>
+						<p class="text-split">解决方法：</p>
+						<ul class="data-list">
+							<li>1.纵向排列；</li>
+							<li>2.设置<code class="highlighter-rouge">legend</code>的大小以及 margin (配置项手册里面可以查到)；</li>
+							<li>3.单独用一个DOM来放<code class="highlighter-rouge">legend</code>的内容，增加点击切换事件。</li>
+						</ul>
 					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png">
-						<h2>Image Backgrounds</h2>
-						<pre><code class="hljs">&lt;section data-background="image.png"&gt;</code></pre>
+					<section>
+						<h2>使用中遇到的问题：</h2>
+						<p>2、单页面中需要展示多个图表</p>
+						<p class="text-split">解决方法：</p>
+						<ul class="data-list">
+							<li>重新定义容器<code class="highlighter-rouge">myChart</code>和<code class="highlighter-rouge">option</code></li>
+						</ul>
 					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" data-background-repeat="repeat" data-background-size="100px">
-						<h2>Tiled Backgrounds</h2>
-						<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
-					</section>
-					<section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm" data-background-color="#000000">
-						<div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
-							<h2>Video Backgrounds</h2>
-							<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
-						</div>
-					</section>
-					<section data-background="http://i.giphy.com/90F8aUepslB84.gif">
-						<h2>... and GIFs!</h2>
+					<section>
+						<h2>使用中遇到的问题：</h2>
+						<p>3、容器隐藏的情况下无法动态展示图表</p>
+						<p class="text-split">解决方法：</p>
+						<ul class="data-list">
+							<li>1.改<code class="highlighter-rouge">display:none</code>为<code class="highlighter-rouge">visibility: hidden;</code></li>
+							<li>2.明确指定div的宽高，然后在div显示后手动调用<code class="highlighter-rouge">echartsInstance.resize</code>调整尺寸。</li>
+						</ul>
 					</section>
 				</section>
 
-				<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						Different background transitions are available via the backgroundTransition option. This one's called "zoom".
-					</p>
-					<pre><code class="hljs">Reveal.configure({ backgroundTransition: 'zoom' })</code></pre>
-				</section>
 
-				<section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						You can override background transitions per-slide.
-					</p>
-					<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
-				</section>
-
-				<section>
-					<h2>Pretty Code</h2>
-					<pre><code class="hljs" data-trim contenteditable>
-						function linkify( selector ) {
-						  if( supports3DTransforms ) {
-
-						    var nodes = document.querySelectorAll( selector );
-
-						    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-						      var node = nodes[i];
-
-						      if( !node.className ) {
-						        node.className += ' roll';
-						      }
-						    }
-						  }
-						}
-					</code></pre>
-					<p>Code syntax highlighting courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-				</section>
-
-				<section>
-					<h2>Marvelous List</h2>
-					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
-				</section>
-
-				<section>
-					<h2>Tabular Tables</h2>
-					<table>
-						<thead>
-							<tr>
-								<th>Item</th>
-								<th>Value</th>
-								<th>Quantity</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Apples</td>
-								<td>$1</td>
-								<td>7</td>
-							</tr>
-							<tr>
-								<td>Lemonade</td>
-								<td>$2</td>
-								<td>18</td>
-							</tr>
-							<tr>
-								<td>Bread</td>
-								<td>$3</td>
-								<td>2</td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-
-				<section>
-					<h2>Clever Quotes</h2>
-					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
-					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
-					</blockquote>
-				</section>
-
-				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
-					</p>
-				</section>
-
-				<section>
-					<h2>Speaker View</h2>
-					<p>There's a <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker view</a>. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>
-					<p>Press the <em>S</em> key to try it out.</p>
-
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
-				</section>
-
-				<section>
-					<h2>Export to PDF</h2>
-					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, here's an example:</p>
-					<iframe data-src="https://www.slideshare.net/slideshow/embed_code/42840540" width="445" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
-				</section>
-
-				<section>
-					<h2>Global State</h2>
-					<p>
-						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-						will be added as a class to the document element when the slide is open. This lets you
-						apply broader style changes, like switching the page background.
-					</p>
-				</section>
-
-				<section data-state="customevent">
-					<h2>State Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
-Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-				</section>
-
-				<section>
-					<h2>Take a Moment</h2>
-					<p>
-						Press B or . on your keyboard to pause the presentation. This is helpful when you're on stage and want to take distracting slides off the screen.
-					</p>
-				</section>
-
-				<section>
-					<h2>Much more</h2>
-					<ul>
-						<li>Right-to-left support</li>
-						<li><a href="https://github.com/hakimel/reveal.js#api">Extensive JavaScript API</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#auto-sliding">Auto-progression</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#parallax-background">Parallax backgrounds</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#keyboard-bindings">Custom keyboard bindings</a></li>
-					</ul>
-				</section>
+				<!-- <section>
+					<section>
+						<h2>使用技巧</h2>
+						<p>1、容器高度固定，legend过多导致覆盖图表</p>
+						<p class="text-split">解决方法：</p>
+						<ul  class="data-list">
+							<li>1.纵向排列；</li>
+							<li>2.设置legend的大小以及 margin (配置项手册里面可以查到)；</li>
+							<li>3.单独用一个DOM来放legend的内容，增加点击切换事件。</li>
+						</ul>
+					</section>
+					
+				</section> -->
 
 				<section style="text-align: left;">
-					<h1>THE END</h1>
+					<h1>THANK YOU!</h1>
 					<p>
-						- <a href="http://slides.com">Try the online editor</a> <br>
-						- <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
+						没有提问环节,88~O(∩_∩)O~
 					</p>
 				</section>
 
@@ -439,6 +320,15 @@ Reveal.addEventListener( 'customevent', function() {
 		
 		<script src="plugin/echarts/echarts.common.min.js"></script>
 		<script  type="text/javascript">
+		window.onload = function() {
+		    Reveal.addEventListener( 'slidechanged', function( event ) {
+		        if (event.indexh === 2 && event.indexv === 0) {
+		            setEChart();
+		        }
+		    });
+
+		};
+		function setEChart() {
 			var myChart = echarts.init(document.getElementById('mychart'))
 		    var xAxisData = [];
 			var data = [];
@@ -542,6 +432,8 @@ Reveal.addEventListener( 'customevent', function() {
 			    }
 			};
 			myChart.setOption(option)
+		}
+			
 		</script>
 
 		<script src="lib/js/head.min.js"></script>
