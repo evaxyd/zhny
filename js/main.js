@@ -47,8 +47,8 @@ $(function($) {
         var width = $(window).width(),
             height = $(window).height();
         $('.banner').css({"width":width+"px","min-height":height+"px"});
-        $('section').css({"width":width+"px","min-height":height+"px"});
-        $('section .container').each(function() {
+        $('.fullscreen').css({"width":width+"px","min-height":height+"px"});
+        $('.fullscreen .container').each(function() {
             var nh = $(this).height();
             if(height > nh) {
                 $(this).css("margin-top",(height-nh)/2 + 'px');
