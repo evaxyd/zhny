@@ -118,6 +118,12 @@
 	margin-top: 20px;
     display: inline-block;
 }
+#culture{
+	background: url(../images/bg-img-4.jpg)  center bottom no-repeat;
+	background-size: cover;
+	width: 100%;
+	position: relative;
+}
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before, [class^="flaticon-"]:after, [class*=" flaticon-"]:after,[class^="flaticonb-"]:before, [class*=" flaticonb-"]:before, [class^="flaticonb-"]:after, [class*=" flaticonb-"]:after{
 	font-size: 50px;
 }
